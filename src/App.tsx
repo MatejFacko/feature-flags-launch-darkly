@@ -1,14 +1,13 @@
-import React from "react";
-import "./App.css";
+import React from 'react';
 
-function App() {
-    return (
-        <div className='App'>
-            <header className='App-header'>
-                <img src='./logo.svg' className='App-logo' alt='logo' />
-            </header>
-        </div>
-    );
-}
+import './App.css';
 
-export default App;
+export const App: React.FC = () => {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>Feature flags demo</h1>
+      </header>
+    </div>
+  );
+};
