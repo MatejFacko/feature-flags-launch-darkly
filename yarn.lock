@@ -4448,14 +4448,14 @@ eslint-plugin-n@15.0.0:
     resolve "^1.10.1"
     semver "^6.1.0"
 
-eslint-plugin-no-inline-styles@^1.0.5:
+eslint-plugin-no-inline-styles@1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/eslint-plugin-no-inline-styles/-/eslint-plugin-no-inline-styles-1.0.5.tgz#c37a7e7a53b46312852d2c44c02cac0df2e700c3"
   integrity sha512-nftOfHV/ag0P0vEPQ3p54HVpGCp6k/E+pHdYnRm2wDK8QhClfmMjrCw+POL5RH/SN1AmTifCTh5VzkeubLgMpA==
   dependencies:
     lodash.get "^4.4.2"
 
-eslint-plugin-no-relative-import-paths@^1.5.2:
+eslint-plugin-no-relative-import-paths@1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/eslint-plugin-no-relative-import-paths/-/eslint-plugin-no-relative-import-paths-1.5.2.tgz#c35f2fd0bf2a6a57b268193ed7df63ff7000134e"
   integrity sha512-wMlL+TVuDhKk1plP+w3L4Hc7+u89vUkrOYq6/0ARjcYqwc9/YaS9uEXNzaqAk+WLoEgakzNL5JgJJw6m4qd5zw==

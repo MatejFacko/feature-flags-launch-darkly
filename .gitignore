@@ -2,3 +2,5 @@ node_modules
 # production
 /build
 /dist
+# Optional eslint cache
+.eslintcache
