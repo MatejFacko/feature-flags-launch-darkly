@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, Stack } from '@mui/material';
 
 const LazyLdProvider = React.lazy(() =>
   import('launchdarkly-react-client-sdk').then(async ({ asyncWithLDProvider }) => {
@@ -23,7 +23,13 @@ interface Props {
 }
 
 export const LdProvider: React.FC<Props> = ({ children }) => (
-  <Suspense fallback={<CircularProgress size={50} />}>
+  <Suspense
+    fallback={
+      <Stack width="100%" height="100vh" spacing={1} justifyContent="center" alignItems="center">
+        <CircularProgress size={50} />
+      </Stack>
+    }
+  >
     <LazyLdProvider>{children}</LazyLdProvider>
   </Suspense>
 );
