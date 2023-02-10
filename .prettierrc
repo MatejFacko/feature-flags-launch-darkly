@@ -8,6 +8,7 @@
         "^@core/(.*)$",
         "<THIRD_PARTY_MODULES>",
         "^@mui/(.*)$",
+        "^@auth0/(.*)$",
         "providers",
         "^[./]"
     ],
