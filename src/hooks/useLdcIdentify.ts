@@ -1,6 +1,8 @@
-import { useAuth0 } from '@auth0/auth0-react';
-import { useLDClient } from 'launchdarkly-react-client-sdk';
 import { useEffect } from 'react';
+
+import { useAuth0 } from '@auth0/auth0-react';
+
+import { useLDClient } from 'launchdarkly-react-client-sdk';
 
 export const useLdcIdentify = (): void => {
   const { user, isAuthenticated } = useAuth0();

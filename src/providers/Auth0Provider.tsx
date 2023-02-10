@@ -1,5 +1,6 @@
-import { Auth0Provider as Auth0ReactProvider } from '@auth0/auth0-react';
 import React from 'react';
+
+import { Auth0Provider as Auth0ReactProvider } from '@auth0/auth0-react';
 
 import { useAuth0Provider } from './useAuth0Provider';
 

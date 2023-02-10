@@ -1,6 +1,7 @@
-import { AppState, CacheLocation } from '@auth0/auth0-react';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { AppState, CacheLocation } from '@auth0/auth0-react';
 
 interface HookOptions {
   clientId: string;
