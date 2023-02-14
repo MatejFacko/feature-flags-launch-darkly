@@ -5,6 +5,8 @@ interface FeatureFlags {
   soundsSettings: boolean;
   rating: boolean;
   dataGrid: boolean;
+  tableColumnFilters: boolean;
+  tableColumnSort: boolean;
 }
 
 export const useFeatureFlags = (): FeatureFlags => {

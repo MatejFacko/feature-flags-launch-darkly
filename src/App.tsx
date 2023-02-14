@@ -1,5 +1,6 @@
 import { useFeatureFlags } from 'hooks/useFeatureFlags';
-import React, { useEffect, useState } from 'react';
+import MaterialReactTable, { MRT_ColumnDef as MrtColumn } from 'material-react-table';
+import React, { useEffect, useMemo, useState } from 'react';
 
 import { VolumeDown, VolumeUp } from '@mui/icons-material';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -19,31 +20,47 @@ import {
   Rating,
   Slider,
   Stack,
-  styled,
   Toolbar,
   Tooltip,
   Typography,
 } from '@mui/material';
-import { DataGrid } from '@mui/x-data-grid';
 
 import { useAuth0 } from '@auth0/auth0-react';
 
-const DataGridWrapper = styled('div')({
-  height: 400,
-  width: '100%',
-});
+type ApiData = {
+  albumId: number;
+  id: number;
+  thumbnailUrl: string;
+  title: string;
+  url: string;
+};
 
 export const App: React.FC = () => {
   const flags = useFeatureFlags();
   const { logout } = useAuth0();
-  const [data, setData] = useState<
-    { albumId: number; id: number; thumbnailUrl: string; title: string; url: string }[]
-  >([]);
-  const columns = [
-    { field: 'albumId', headerName: 'Album Id', width: 200 },
-    { field: 'title', headerName: 'Title', width: 200 },
-    { field: 'url', headerName: 'Song url', width: 200 },
-  ];
+  const [data, setData] = useState<ApiData[]>([]);
+
+  const columns = useMemo<MrtColumn<ApiData>[]>(
+    () => [
+      {
+        accessorKey: 'id',
+        header: 'Id',
+      },
+      {
+        accessorKey: 'albumId',
+        header: 'Album Id',
+      },
+      {
+        accessorKey: 'title',
+        header: 'Title',
+      },
+      {
+        accessorKey: 'url',
+        header: 'Song url',
+      },
+    ],
+    []
+  );
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/photos')
@@ -241,9 +258,20 @@ export const App: React.FC = () => {
             <Typography variant="h4">Performance testing</Typography>
           </Stack>
           <Stack paddingTop={2}>
-            <DataGridWrapper>
-              <DataGrid rows={data} columns={columns} pageSize={5} rowsPerPageOptions={[5]} />
-            </DataGridWrapper>
+            <MaterialReactTable
+              columns={columns}
+              data={data}
+              enableTopToolbar={false}
+              enableColumnActions
+              enableColumnFilters={flags.tableColumnFilters}
+              enablePagination
+              muiTablePaginationProps={{
+                rowsPerPageOptions: [5, 10],
+                showFirstButton: false,
+                showLastButton: false,
+              }}
+              enableSorting={flags.tableColumnSort}
+            />
           </Stack>
         </Grid>
       </Grid>
