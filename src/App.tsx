@@ -55,27 +55,18 @@ export const App: React.FC = () => {
     <Stack direction="column" justifyContent="space-between" height="100vh">
       <AppBar position="static">
         <Toolbar variant="dense">
-          <Stack width="100%" direction="row" alignItems="center" justifyContent="space-between">
-            <Stack width="100%" direction="row" justifyContent="end" alignItems="center">
-              <Typography variant="h4">Feature flags demo</Typography>
-            </Stack>
-            <Stack width="100%" direction="row" justifyContent="end" alignItems="center">
-              <Tooltip title="Logout">
-                <IconButton onClick={(): void => logout()} edge="start" color="inherit">
-                  <LogoutIcon fontSize="large" />
-                </IconButton>
-              </Tooltip>
-            </Stack>
+          <Stack width="100%" direction="row" justifyContent="end" alignItems="center">
+            <Tooltip title="Logout">
+              <IconButton onClick={(): void => logout()} edge="start" color="inherit">
+                <LogoutIcon fontSize="large" />
+              </IconButton>
+            </Tooltip>
           </Stack>
         </Toolbar>
       </AppBar>
 
       <Stack paddingY={5} direction="column" justifyContent="center" alignItems="center">
-        <Typography variant="h4">Feature flags demo APP</Typography>
-      </Stack>
-
-      <Stack paddingY={5} direction="column" justifyContent="center" alignItems="center">
-        <Typography variant="h5">All flags: {JSON.stringify(flags)}</Typography>
+        <Typography variant="h3">Feature flags demo APP</Typography>
       </Stack>
 
       <Grid
