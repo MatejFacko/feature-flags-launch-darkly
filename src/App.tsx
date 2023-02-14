@@ -258,20 +258,22 @@ export const App: React.FC = () => {
             <Typography variant="h4">Performance testing</Typography>
           </Stack>
           <Stack paddingTop={2}>
-            <MaterialReactTable
-              columns={columns}
-              data={data}
-              enableTopToolbar={false}
-              enableColumnActions
-              enableColumnFilters={flags.tableColumnFilters}
-              enablePagination
-              muiTablePaginationProps={{
-                rowsPerPageOptions: [5, 10],
-                showFirstButton: false,
-                showLastButton: false,
-              }}
-              enableSorting={flags.tableColumnSort}
-            />
+            {flags.dataGrid && (
+              <MaterialReactTable
+                columns={columns}
+                data={data}
+                enableTopToolbar={false}
+                enableColumnActions
+                enableColumnFilters={flags.tableColumnFilters}
+                enablePagination
+                muiTablePaginationProps={{
+                  rowsPerPageOptions: [5, 10],
+                  showFirstButton: false,
+                  showLastButton: false,
+                }}
+                enableSorting={flags.tableColumnSort}
+              />
+            )}
           </Stack>
         </Grid>
       </Grid>

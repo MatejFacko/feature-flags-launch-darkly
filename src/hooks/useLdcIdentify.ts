@@ -11,7 +11,7 @@ export const useLdcIdentify = (): void => {
   useEffect(() => {
     if (user) {
       const { sub: id, email } = user;
-      ldClient?.identify({ key: id, email });
+      ldClient?.identify({ key: id, email, country: user.country });
     }
   }, [isAuthenticated]);
 };
