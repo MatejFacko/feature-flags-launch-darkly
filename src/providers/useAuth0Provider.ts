@@ -23,8 +23,11 @@ export const useAuth0Provider = (): HookOptions => {
   }, []);
 
   return {
+    // TODO pass as env variable
     clientId: 'BZ0qU4GYQXPs5F0DC0OD74OFdxJCKT3h',
+    // TODO pass as env variable
     domain: 'dev-r53od3ppmnig47qs.us.auth0.com',
+    // TODO pass as env variable
     audience: 'dev-r53od3ppmnig47qs.us.auth0.com',
     handleRedirectCallback,
     cacheLocation: 'localstorage',

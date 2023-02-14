@@ -74,7 +74,11 @@ export const App: React.FC = () => {
         <Toolbar variant="dense">
           <Stack width="100%" direction="row" justifyContent="end" alignItems="center">
             <Tooltip title="Logout">
-              <IconButton onClick={(): void => logout()} edge="start" color="inherit">
+              <IconButton
+                onClick={(): void => logout({ returnTo: window.location.origin })}
+                edge="start"
+                color="inherit"
+              >
                 <LogoutIcon fontSize="large" />
               </IconButton>
             </Tooltip>
