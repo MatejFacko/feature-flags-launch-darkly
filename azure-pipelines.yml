@@ -35,7 +35,7 @@ jobs:
      
       - task: AzureFileCopy@5
         inputs:
-          SourcePath: '$(Build.SourcesDirectory)/build'
+          SourcePath: '$(Build.SourcesDirectory)/build/*'
           azureSubscription: 'Azure subscription 1 (941c8779-7d32-460f-a5cd-6e0781a9d0ff)'
           Destination: 'AzureBlob'
           storage: 'featureflagsworkshop'
