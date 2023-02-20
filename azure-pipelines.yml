@@ -7,8 +7,6 @@ variables:
 jobs:  
   - job: Build
     displayName: Build + deploy
-    dependsOn:
-    - Cache_Packages
     pool:
       vmImage: 'windows-latest'
     steps:
