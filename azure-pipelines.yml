@@ -13,7 +13,7 @@ jobs:
   - job: Cache_Packages
     displayName:  Yarn package caching
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: 'windows-latest'
     steps:
       - task: NodeTool@0
         inputs:
@@ -38,7 +38,7 @@ jobs:
     dependsOn:
     - Cache_Packages
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: 'windows-latest'
     steps:
       - task: NodeTool@0
         inputs:
