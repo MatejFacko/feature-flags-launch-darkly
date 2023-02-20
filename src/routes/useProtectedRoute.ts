@@ -1,7 +1,8 @@
-import { useLdcIdentify } from 'hooks/useLdcIdentify';
 import { useEffect } from 'react';
 
 import { useAuth0 } from '@auth0/auth0-react';
+
+import { useLdcIdentify } from 'hooks/useLdcIdentify';
 
 interface HookResult {
   error: any;
