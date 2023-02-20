@@ -57,9 +57,6 @@ jobs:
       - script: yarn --frozen-lockfile
         displayName: 'yarn install'
         
-      - script: 'yarn run tsc'
-        displayName: 'yarn tsc'
-
       - script: |
          yarn run build
         displayName: 'yarn build'
