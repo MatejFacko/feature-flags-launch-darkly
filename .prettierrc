@@ -8,9 +8,12 @@
         "^@core/(.*)$",
         "<THIRD_PARTY_MODULES>",
         "^@mui/(.*)$",
+        "material-react-table",
         "^@auth0/(.*)$",
         "launchdarkly-react-client-sdk",
         "providers",
+        "hooks/(.*)$",
+        "components",
         "^[./]"
     ],
     "importOrderSeparation": true,

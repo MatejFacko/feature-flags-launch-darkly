@@ -6,8 +6,7 @@ const LazyLdProvider = React.lazy(() =>
   import('launchdarkly-react-client-sdk').then(async ({ asyncWithLDProvider }) => {
     return {
       default: await asyncWithLDProvider({
-        // TODO pass as env variable
-        clientSideID: '63c93525f49486126eecbe42',
+        clientSideID: process.env.REACT_APP_LAUNCH_DARKLY_CLIENT_ID as string,
         options: { streaming: true },
         // NOTE It is recommend to use the same user key for every initialization and then replacing that with the actual user key.
         // This way LaunchDarkly counts the initialization user key only once against your MAU, instead of every time you initialize.

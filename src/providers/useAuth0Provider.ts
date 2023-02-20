@@ -23,12 +23,9 @@ export const useAuth0Provider = (): HookOptions => {
   }, []);
 
   return {
-    // TODO pass as env variable
-    clientId: 'BZ0qU4GYQXPs5F0DC0OD74OFdxJCKT3h',
-    // TODO pass as env variable
-    domain: 'dev-r53od3ppmnig47qs.us.auth0.com',
-    // TODO pass as env variable
-    audience: 'dev-r53od3ppmnig47qs.us.auth0.com',
+    clientId: process.env.REACT_APP_AUTH0_CLIENT_ID as string,
+    domain: process.env.REACT_APP_AUTH0_DOMAIN as string,
+    audience: process.env.REACT_APP_AUTH0_AUDIENCE as string,
     handleRedirectCallback,
     cacheLocation: 'localstorage',
     redirectUri: window.location.origin,
