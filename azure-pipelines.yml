@@ -1,40 +1,12 @@
-# Node.js with React
-# Build a Node.js project that uses React.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
 trigger:
 - main
 
 variables:
   YARN_CACHE_FOLDER: $(Pipeline.Workspace)/.yarn
 
-jobs:
-  - job: Cache_Packages
-    displayName:  Yarn package caching
-    pool:
-      vmImage: 'windows-latest'
-    steps:
-      - task: NodeTool@0
-        inputs:
-          versionSpec: '18.x'
-
-      - task: Cache@2
-        displayName: Cache Yarn packages
-        inputs:
-          key: '"yarn" | "$(Agent.OS)" | yarn.lock'
-          restoreKeys: |
-            yarn | "$(Agent.OS)"
-            yarn
-          path: $(YARN_CACHE_FOLDER)
-          cacheHitVar: 'PACKAGES_CACHED'
-
-      - script: yarn --frozen-lockfile
-        displayName: 'yarn install'
-        condition: and(succeeded(), eq(variables.PACKAGES_CACHED,'false'))
-      
+jobs:  
   - job: Build
-    displayName: Run build + deploy
+    displayName: Build + deploy
     dependsOn:
     - Cache_Packages
     pool:
