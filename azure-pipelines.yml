@@ -1,0 +1,42 @@
+trigger:
+- main
+
+variables:
+  YARN_CACHE_FOLDER: $(Pipeline.Workspace)/.yarn
+
+jobs:  
+  - job: Build
+    displayName: Build + deploy
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '18.x'
+
+      - task: Cache@2
+        displayName: Cache Yarn packages
+        inputs:
+          key: '"yarn" | "$(Agent.OS)" | yarn.lock'
+          restoreKeys: |
+            yarn | "$(Agent.OS)"
+            yarn
+          path: $(YARN_CACHE_FOLDER)
+          cacheHitVar: 'PACKAGES_CACHED'
+
+      - script: yarn --frozen-lockfile
+        displayName: 'yarn install'
+        
+      - script: |
+         yarn run build
+        displayName: 'yarn build'
+     
+      - task: AzureFileCopy@5
+        inputs:
+          SourcePath: '$(Build.SourcesDirectory)/build/*'
+          azureSubscription: 'Azure subscription 1 (941c8779-7d32-460f-a5cd-6e0781a9d0ff)'
+          Destination: 'AzureBlob'
+          storage: 'featureflagsworkshop'
+          ContainerName: '$web'
+          CleanTargetBeforeCopy: true
+ 
