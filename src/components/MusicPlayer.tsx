@@ -1,25 +1,11 @@
 import React from 'react';
 
-import { VolumeDown, VolumeUp } from '@mui/icons-material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
-import {
-  Grid,
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  Stack,
-  IconButton,
-  Slider,
-} from '@mui/material';
-
-import { useFeatureFlags } from 'hooks/useFeatureFlags';
+import { Grid, Card, CardMedia, CardContent, Typography, Stack, IconButton } from '@mui/material';
 
 export const MusicPlayer: React.FC = () => {
-  const flags = useFeatureFlags();
-
   return (
     <Stack paddingTop={2}>
       <Grid container justifyContent="center">
@@ -55,15 +41,7 @@ export const MusicPlayer: React.FC = () => {
           </Card>
         </Grid>
       </Grid>
-      {flags.soundsSettings && (
-        <Grid container justifyContent="center">
-          <Grid item xs={12} md={6} lg={3}>
-            <VolumeDown />
-            <Slider defaultValue={70} min={10} max={100} />
-            <VolumeUp />
-          </Grid>
-        </Grid>
-      )}
+      {/* <SoundSettings /> */}
     </Stack>
   );
 };
