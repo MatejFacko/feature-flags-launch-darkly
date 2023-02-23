@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 
 import MaterialReactTable, { MRT_ColumnDef as MrtColumn } from 'material-react-table';
 
+import { useFeatureFlags } from 'hooks/useFeatureFlags';
+
 type ApiData = {
   albumId: number;
   id: number;
@@ -12,6 +14,7 @@ type ApiData = {
 
 export const Table: React.FC = () => {
   const [data, setData] = useState<ApiData[]>([]);
+  const { tableColumnFilters, tableColumnSort } = useFeatureFlags();
 
   const columns = useMemo<MrtColumn<ApiData>[]>(
     () => [
@@ -49,7 +52,7 @@ export const Table: React.FC = () => {
         columns={columns}
         data={data}
         enableTopToolbar={false}
-        enableColumnFilters={false}
+        enableColumnFilters={tableColumnFilters}
         //   enableColumnFilters={flags.tableColumnFilters}
         enablePagination
         muiTablePaginationProps={{
@@ -57,7 +60,7 @@ export const Table: React.FC = () => {
           showFirstButton: false,
           showLastButton: false,
         }}
-        enableSorting={false}
+        enableSorting={tableColumnSort}
         //   enableSorting={flags.tableColumnSort}
       />
     </>
