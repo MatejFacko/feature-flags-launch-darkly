@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Grid, Stack, Typography } from '@mui/material';
 
-import { AppBar, Table, MusicPlayer } from 'components';
+import { AppBar, Table, MusicPlayer, Ratings } from 'components';
 
 export const App: React.FC = () => {
   return (
@@ -25,7 +25,7 @@ export const App: React.FC = () => {
         </Grid>
 
         <Grid item xs={12}>
-          {/* <Ratings /> */}
+          <Ratings />
         </Grid>
 
         <Grid paddingBottom={10} item xs={10}>
