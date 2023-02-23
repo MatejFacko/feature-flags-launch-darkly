@@ -13,8 +13,12 @@ import {
   Button,
 } from '@mui/material';
 
+import { useFeatureFlags } from 'hooks/useFeatureFlags';
+
 export const Ratings: React.FC = () => {
-  return (
+  const { rating } = useFeatureFlags();
+
+  return rating ? (
     <Stack direction="column" justifyContent="center" alignItems="center" spacing={2}>
       <Grid container justifyContent="center" spacing={4}>
         <Grid item xs={4} md={3} lg={2} xl={1.5}>
@@ -115,5 +119,5 @@ export const Ratings: React.FC = () => {
         </Grid>
       </Grid>
     </Stack>
-  );
+  ) : null;
 };
